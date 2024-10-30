@@ -80,7 +80,7 @@ function M.config()
 		{ "<F4>", "<cmd>TmuxToggle<CR>", desc = "Toggle the terminal" },
 		{ "<F5>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle tree view" },
 		{ "<F9>", " <cmd>RunCode<CR>", desc = "Run code" },
-		{ "<F10>", " <cmd>RunProject<CR>", desc = "Run project" },
+		{ "<F10>", "<cmd>RunProject<CR>", desc = "Run project" },
 		{ "]", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
 		{ "[", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
 		{ "<C-BS>", "<cmd>dw<CR>", desc = "Deletes previous year." },
