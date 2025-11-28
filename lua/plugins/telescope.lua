@@ -1,0 +1,90 @@
+-- Add required packages
+local M = {
+	vim.pack.add({
+		{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+		{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+		{ src = "https://github.com/nvim-telescope/telescope-file-browser.nvim" },
+	})
+}
+
+function M.config()
+	local status, telescope = pcall(require, "telescope")
+	if not status then
+		return
+	end
+
+	local actions = require("telescope.actions")
+	telescope.load_extension("file_browser")
+
+	telescope.setup({
+		defaults = {
+			layout_config = {
+				horizontal = { width = 0.9 },
+			},
+			path_display = { "smart" },
+			file_ignore_patterns = {
+				".git/",
+				"target/",
+				"docs/",
+				"vendor/*",
+				"%.lock",
+				"__pycache__/*",
+				"__pycache__/",
+				"%.sqlite3",
+				"%.ipynb",
+				"node_modules/*",
+				"%.svg",
+				"%.otf",
+				"%.ttf",
+				"%.webp",
+				".dart_tool/",
+				".github/",
+				".gradle/",
+				"gradle/",
+				".idea/",
+				".settings/",
+				".vscode/",
+				"build/",
+				"env/",
+				"node_modules/",
+				"%.pdb",
+				"%.cache",
+				"%.pdf",
+				"%.jar",
+				"%.docx",
+				"%.rar",
+				"%.zip",
+				"%.7z",
+				"%.tar",
+				"%.tar.gz",
+				"%.epub",
+			},
+
+			mappings = {
+				i = {
+					["<C-j>"] = actions.move_selection_next,
+					["<C-k>"] = actions.move_selection_previous,
+
+					["<C-b>"] = actions.results_scrolling_up,
+					["<C-f>"] = actions.results_scrolling_down,
+
+					["<CR>"] = actions.select_default,
+
+					["<C-u>"] = actions.preview_scrolling_up,
+					["<C-d>"] = actions.preview_scrolling_down,
+
+					["<Tab>"] = actions.close
+				},
+			},
+		},
+		pickers = {
+			man_pages = {
+				sections = {"ALL"}
+			},
+		},
+	})
+
+	telescope.load_extension("fzf")
+end
+
+return M
