@@ -10,7 +10,6 @@ function M.config()
 	if not status then
 		return
 	end
-
 	nvim_tree.setup({
 		sort_by = "case_sensitive",
 		view = {
@@ -21,7 +20,7 @@ function M.config()
 		},
 		filters = {
 			dotfiles = true
-		}
+		},
 	})
 end
 

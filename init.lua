@@ -15,6 +15,7 @@ local plugins = {
 	require("plugins.noice"),
 	require("plugins.dadbod"),
 	require("plugins.markdown-preview"),
+	require("plugins.edgy"),
 }
 
 for _, plugin in ipairs(plugins) do

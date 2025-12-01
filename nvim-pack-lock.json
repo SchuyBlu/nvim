@@ -9,6 +9,10 @@
       "rev": "1552086ebcce9f4a2ea3b9793018a884d6b60169",
       "src": "https://github.com/coder/claudecode.nvim"
     },
+    "edgy.nvim": {
+      "rev": "8bfd2808994a988c975694122f68624b8a219f5f",
+      "src": "https://github.com/folke/edgy.nvim"
+    },
     "indent-blankline.nvim": {
       "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"

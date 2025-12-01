@@ -21,17 +21,26 @@ end
 
 -- Close buffer intelligently
 function close_focus_buffer()
+	local current_buftype = vim.bo.buftype
 	local res = list_number_of_normal_buffers()
 
 	if res == 0 or res == 1 then
+		-- If current buffer is special (terminal, quickfix, etc), just quit
+		if current_buftype ~= "" then
+			vim.cmd.q{ bang = true }
+			return
+		end
+		-- For normal buffers, try to write and quit
 		local status, _ = pcall(vim.cmd.wq{ bang = true })
 		if not status then
-			vim.cmd.q()
+			vim.cmd.q{ bang = true }
 		end
 		return
 	end
 
-	vim.cmd.bd()
+	-- Multiple buffers: delete current buffer
+	-- Special buffers can be safely deleted with :bd
+	vim.cmd.bd{ bang = true }
 end
 
 -- Terminal
