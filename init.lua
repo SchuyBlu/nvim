@@ -27,11 +27,18 @@ end
 -- Set up LSP
 require("lsp")
 
--- Auto-open Telescope file browser when starting without arguments
+-- Auto-open Telescope file browser when starting without arguments or with a directory
 if vim.fn.argc() == 0 then
 	vim.defer_fn(function()
 		vim.cmd("Telescope file_browser")
 	end, 10)
+elseif vim.fn.argc() == 1 then
+	local arg = vim.fn.argv(0)
+	if vim.fn.isdirectory(arg) == 1 then
+		vim.defer_fn(function()
+			vim.cmd("Telescope file_browser path=" .. vim.fn.fnameescape(arg))
+		end, 10)
+	end
 end
 
 -- Finally, set colorscheme

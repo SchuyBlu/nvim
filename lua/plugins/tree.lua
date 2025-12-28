@@ -11,15 +11,21 @@ function M.config()
 		return
 	end
 	nvim_tree.setup({
+		hijack_netrw = false,
+		hijack_directories = {
+			enable = false,
+		},
 		sort_by = "case_sensitive",
 		view = {
-			width = 30
+			width = 30,
+			side = "left",
 		},
 		renderer = {
 			group_empty = true
 		},
 		filters = {
-			dotfiles = true
+			dotfiles = false,
+			git_ignored = false
 		},
 	})
 end

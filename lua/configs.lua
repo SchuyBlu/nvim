@@ -15,4 +15,8 @@ opt.cursorline = true     -- Highlights current line
 opt.winborder = "rounded" -- Uses rounded borders for windows
 opt.hlsearch = false      -- Disable hightling of search results
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.cmd.filetype("plugin indent on") -- Enable filtype detect, plugins, and indents
